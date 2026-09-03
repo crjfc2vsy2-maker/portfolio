@@ -28,6 +28,16 @@ const portfolioData = {
   //   status    - "live" | "in-progress" | "concept" | "archived".
   projects: [
     {
+      title: "Oakmont Barber Co.",
+      description:
+        "A premium barbershop concept website with responsive design, booking UI, service pricing, team profiles, gallery, opening hours and contact sections.",
+      image: "assets/oakmont-barber-concept.png",
+      technologies: ["HTML", "CSS", "JavaScript", "Git", "GitHub Pages"],
+      liveUrl: "https://crjfc2vsy2-maker.github.io/barbershop-concept/",
+      githubUrl: "https://github.com/crjfc2vsy2-maker/barbershop-concept",
+      status: "concept",
+    },
+    {
       title: "Personal Portfolio",
       description:
         "A responsive personal portfolio website built to showcase my work, skills, and contact information. Designed with a clean, modern interface and optimized for both desktop and mobile.",
@@ -155,7 +165,24 @@ const createProjectCard = (project, index) => {
     image.setAttribute("aria-hidden", "true");
   }
 
-  preview.append(image);
+  // A project with a live URL gets a clickable preview (opens in a new tab).
+  // Without one, the preview stays a plain, non-interactive image.
+  if (project.liveUrl) {
+    const previewLink = document.createElement("a");
+    previewLink.className = "project-preview-link";
+    previewLink.href = project.liveUrl;
+    previewLink.target = "_blank";
+    previewLink.rel = "noreferrer";
+    previewLink.setAttribute(
+      "aria-label",
+      `Open the ${project.title} live site in a new tab`,
+    );
+    image.alt = "";
+    previewLink.append(image);
+    preview.append(previewLink);
+  } else {
+    preview.append(image);
+  }
 
   const body = document.createElement("div");
   body.className = "project-body";
