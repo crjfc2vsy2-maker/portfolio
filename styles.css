@@ -265,6 +265,16 @@ a {
   gap: 22px;
 }
 
+/* With one or two projects, keep the cards a natural width instead of
+   stretching them across the full grid. */
+.projects-grid:has(.project-card:nth-child(2):last-child) {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.projects-grid:has(.project-card:only-child) {
+  grid-template-columns: minmax(0, 460px);
+}
+
 .project-card {
   display: flex;
   min-width: 0;
@@ -430,6 +440,46 @@ a {
   line-height: 1.7;
 }
 
+.contact-links {
+  display: inline-flex;
+  width: min(360px, 100%);
+  margin: 0;
+  padding: 0;
+  flex-direction: column;
+  gap: 12px;
+  list-style: none;
+  text-align: left;
+}
+
+.contact-links a {
+  display: flex;
+  gap: 12px 20px;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 15px 20px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  text-decoration: none;
+  transition: border-color 160ms ease, background-color 160ms ease;
+}
+
+.contact-label {
+  color: var(--quiet);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.contact-value {
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 500;
+  word-break: break-word;
+}
+
 .site-footer {
   border-top: 1px solid var(--border);
 }
@@ -476,6 +526,11 @@ a {
   .project-card:hover {
     border-color: #3a3b40;
     transform: translateY(-4px);
+  }
+
+  .contact-links a:hover {
+    border-color: #3a3b40;
+    background: var(--surface-light);
   }
 }
 
@@ -664,10 +719,6 @@ a {
 
   .hero h1 br {
     display: none;
-  }
-
-  .project-preview {
-    padding: 20px;
   }
 }
 

@@ -1,79 +1,58 @@
-// Редактируйте этот объект, чтобы обновлять профиль, проекты и навыки без изменений в HTML.
+// Update this object to change the profile, projects, skills and contacts.
+// The page renders itself from this data — no HTML edits needed.
 const portfolioData = {
   profile: {
-    name: "Ваше Имя",
-    shortName: "Ваше Имя",
-    email: "hello@example.com",
+    name: "Vladyslav",
+    shortName: "Vladyslav",
+    title: "Web Developer & AI Builder",
     intro:
-      "Разрабатываю современные интерфейсы и превращаю идеи в быстрые, понятные цифровые продукты.",
+      "I build modern, responsive websites and turn ideas into polished digital products using web technologies and AI.",
     aboutLead:
-      "Проектирую и разрабатываю интерфейсы, в которых визуальная точность сочетается с чистым и надёжным кодом.",
+      "I’m a web developer focused on building clean, responsive, and modern websites.",
     aboutBody:
-      "Мне важны логичная структура, высокая скорость и детали, которые делают продукт приятным каждый день. Это портфолио будет расти вместе с новыми задачами и опытом.",
+      "I use AI tools alongside web technologies to move quickly from idea to working product. I care about usability, performance, and making websites feel polished on both desktop and mobile. I’m constantly improving my workflow and expanding the kinds of projects I can build.",
+    // Add or reorder contact methods here. url is the clickable target,
+    // value is the visible text.
+    contacts: [
+      { label: "Telegram", value: "@vr_8kk", url: "https://t.me/vr_8kk" },
+      { label: "Email", value: "vladender218@gmail.com", url: "mailto:vladender218@gmail.com" },
+      { label: "WhatsApp", value: "+45 50 65 00 01", url: "https://wa.me/4550650001" },
+    ],
   },
-  // Чтобы добавить новый проект — просто добавьте ещё один объект в этот массив.
-  // Поля: title, description, image, technologies, liveUrl, githubUrl, status.
-  //   image     — путь или URL к скриншоту (например "images/my-project.png");
-  //               оставьте "" — карточка покажет аккуратную авто-заглушку.
-  //   liveUrl   — ссылка на рабочий сайт; "" — кнопка не показывается.
-  //   githubUrl — ссылка на репозиторий; "" — кнопка не показывается.
-  //   status    — "live" | "in-progress" | "concept" | "archived".
+  // To add a new project, just add one more object to this array.
+  // Fields: title, description, image, technologies, liveUrl, githubUrl, status.
+  //   image     - path or URL to a screenshot (e.g. "images/my-project.png");
+  //               leave "" to show a clean auto-generated placeholder.
+  //   liveUrl   - link to the live site; "" hides the button.
+  //   githubUrl - link to the repository; "" hides the button.
+  //   status    - "live" | "in-progress" | "concept" | "archived".
   projects: [
     {
-      title: "Northstar Studio",
+      title: "Personal Portfolio",
       description:
-        "Сайт цифровой студии с ясной подачей услуг, выразительной типографикой и адаптивной сеткой.",
+        "A responsive personal portfolio website built to showcase my work, skills, and contact information. Designed with a clean, modern interface and optimized for both desktop and mobile.",
       image: "",
-      technologies: ["HTML", "CSS", "JavaScript"],
+      technologies: ["HTML", "CSS", "JavaScript", "Git", "GitHub", "AI-assisted Development"],
       liveUrl: "",
       githubUrl: "",
       status: "in-progress",
-    },
-    {
-      title: "Atelier Objects",
-      description:
-        "Минималистичный каталог предметов интерьера с фокусом на контенте и удобной навигацией.",
-      image: "",
-      technologies: ["React", "CSS Modules", "Vite"],
-      liveUrl: "",
-      githubUrl: "",
-      status: "in-progress",
-    },
-    {
-      title: "Pulse Dashboard",
-      description:
-        "Панель аналитики с понятной иерархией данных, быстрыми фильтрами и адаптивными графиками.",
-      image: "",
-      technologies: ["TypeScript", "Next.js", "API"],
-      liveUrl: "",
-      githubUrl: "",
-      status: "concept",
     },
   ],
   skills: [
+    { category: "Languages", items: "HTML, CSS, JavaScript, TypeScript" },
+    { category: "Frameworks", items: "React, Next.js" },
+    { category: "Tools", items: "Git, GitHub, npm" },
     {
-      category: "Frontend",
-      items: "HTML, CSS, JavaScript, TypeScript, React",
-    },
-    {
-      category: "UI & UX",
-      items: "Responsive design, accessibility, design systems, Figma",
-    },
-    {
-      category: "Tools",
-      items: "Git, GitHub, Vite, npm, Chrome DevTools",
-    },
-    {
-      category: "Quality",
-      items: "Performance, semantic markup, testing, clean architecture",
+      category: "Practices",
+      items: "Responsive Design, API Integration, AI-assisted Development",
     },
   ],
 };
 
 const profileFields = document.querySelectorAll("[data-profile-field]");
-const emailLink = document.querySelector("[data-profile-link='email']");
 const projectsGrid = document.querySelector("#projectsGrid");
 const skillsGrid = document.querySelector("#skillsGrid");
+const contactLinks = document.querySelector("#contactLinks");
 
 profileFields.forEach((field) => {
   const key = field.dataset.profileField;
@@ -84,8 +63,34 @@ profileFields.forEach((field) => {
   }
 });
 
-emailLink.href = `mailto:${portfolioData.profile.email}`;
 document.querySelector("#year").textContent = new Date().getFullYear();
+
+if (contactLinks) {
+  portfolioData.profile.contacts.forEach((contact) => {
+    const item = document.createElement("li");
+
+    const link = document.createElement("a");
+    link.href = contact.url;
+    link.setAttribute("aria-label", `${contact.label}: ${contact.value}`);
+
+    if (/^https?:/i.test(contact.url)) {
+      link.target = "_blank";
+      link.rel = "noreferrer";
+    }
+
+    const label = document.createElement("span");
+    label.className = "contact-label";
+    label.textContent = contact.label;
+
+    const value = document.createElement("span");
+    value.className = "contact-value";
+    value.textContent = contact.value;
+
+    link.append(label, value);
+    item.append(link);
+    contactLinks.append(item);
+  });
+}
 
 const PROJECT_STATUS_LABELS = {
   live: "Live",
@@ -94,7 +99,7 @@ const PROJECT_STATUS_LABELS = {
   archived: "Archived",
 };
 
-// Фоновые цвета авто-заглушки — те же оттенки, что использовались в превью раньше.
+// Placeholder background colours, reused when a project has no image yet.
 const PLACEHOLDER_PALETTE = [
   { background: "#dedbd2", ink: "#24221f" },
   { background: "#a9bcd0", ink: "#152433" },
@@ -143,7 +148,7 @@ const createProjectCard = (project, index) => {
 
   if (project.image) {
     image.src = project.image;
-    image.alt = `Превью проекта «${project.title}»`;
+    image.alt = `${project.title} preview`;
   } else {
     image.src = buildPlaceholderImage(project.title, index);
     image.alt = "";
@@ -176,7 +181,7 @@ const createProjectCard = (project, index) => {
 
   const technologies = document.createElement("ul");
   technologies.className = "tech-list";
-  technologies.setAttribute("aria-label", "Технологии");
+  technologies.setAttribute("aria-label", "Technologies");
 
   (project.technologies || []).forEach((technology) => {
     const item = document.createElement("li");
@@ -241,7 +246,7 @@ if (headerInner && navToggle && navWrap) {
   const setNav = (open) => {
     headerInner.classList.toggle("nav-open", open);
     navToggle.setAttribute("aria-expanded", String(open));
-    navToggle.setAttribute("aria-label", open ? "Закрыть меню" : "Открыть меню");
+    navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
   };
 
   navToggle.addEventListener("click", () => {

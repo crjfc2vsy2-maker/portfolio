@@ -1,38 +1,38 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Портфолио веб-разработчика: проекты, навыки и контакты."
+      content="Portfolio of Vladyslav, a web developer and AI builder: projects, skills, and contact."
     />
-    <title>Портфолио веб-разработчика</title>
+    <title>Vladyslav — Web Developer &amp; AI Builder</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=7" />
+    <link rel="stylesheet" href="styles.css?v=8" />
   </head>
   <body>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="logo" href="#top" aria-label="На главную" data-profile-field="shortName">Имя</a>
+        <a class="logo" href="#top" aria-label="Back to top" data-profile-field="shortName">Vladyslav</a>
         <button
           class="nav-toggle"
           id="navToggle"
           type="button"
           aria-expanded="false"
           aria-controls="primaryNav"
-          aria-label="Открыть меню"
+          aria-label="Open menu"
         >
           <span class="nav-toggle-bar"></span>
           <span class="nav-toggle-bar"></span>
         </button>
         <div class="nav-wrap" id="primaryNav">
-          <nav class="main-nav" aria-label="Основная навигация">
+          <nav class="main-nav" aria-label="Main navigation">
             <a href="#about">About</a>
             <a href="#projects">Projects</a>
             <a href="#skills">Skills</a>
@@ -44,14 +44,14 @@
 
     <main id="top">
       <section class="hero container" aria-labelledby="hero-title">
-        <p class="eyebrow">Web developer · Portfolio</p>
+        <p class="eyebrow" data-profile-field="title">Web Developer &amp; AI Builder</p>
         <h1 id="hero-title">
-          Привет, я <span data-profile-field="name">Ваше Имя</span>.<br />
-          Создаю сайты, которыми удобно пользоваться.
+          Hi, I’m <span data-profile-field="name">Vladyslav</span>.<br />
+          I build modern websites, faster with AI.
         </h1>
         <p class="hero-copy" data-profile-field="intro">
-          Разрабатываю современные интерфейсы и превращаю идеи в быстрые,
-          понятные цифровые продукты.
+          I build modern, responsive websites and turn ideas into polished
+          digital products using web technologies and AI.
         </p>
         <div class="hero-actions">
           <a class="button button-primary" href="#projects">View projects</a>
@@ -66,13 +66,15 @@
         </div>
         <div class="about-content">
           <p class="about-lead" data-profile-field="aboutLead">
-            Проектирую и разрабатываю интерфейсы, в которых визуальная точность
-            сочетается с чистым и надёжным кодом.
+            I’m a web developer focused on building clean, responsive, and
+            modern websites.
           </p>
           <p data-profile-field="aboutBody">
-            Мне важны логичная структура, высокая скорость и детали, которые
-            делают продукт приятным каждый день. Это портфолио будет расти вместе
-            с новыми задачами и опытом.
+            I use AI tools alongside web technologies to move quickly from idea
+            to working product. I care about usability, performance, and making
+            websites feel polished on both desktop and mobile. I’m constantly
+            improving my workflow and expanding the kinds of projects I can
+            build.
           </p>
         </div>
       </section>
@@ -81,9 +83,9 @@
         <div class="section-heading section-heading-row">
           <div>
             <p class="section-index">02</p>
-            <h2 id="projects-title">Selected projects</h2>
+            <h2 id="projects-title">Projects</h2>
           </div>
-          <p class="section-note">A selection of recent work</p>
+          <p class="section-note">What I’m building</p>
         </div>
         <div class="projects-grid" id="projectsGrid"></div>
       </section>
@@ -98,24 +100,21 @@
 
       <section class="contact-section container" id="contact" aria-labelledby="contact-title">
         <p class="section-index">04 · Contact</p>
-        <h2 id="contact-title">Есть идея для проекта?<br />Давайте обсудим.</h2>
+        <h2 id="contact-title">Have a project in mind?<br />Let’s talk.</h2>
         <p>
-          Расскажите о задаче — я отвечу и предложу следующий шаг.
+          Reach out on any of these and I’ll reply with a next step.
         </p>
-        <a class="button button-primary" data-profile-link="email" href="mailto:hello@example.com">
-          Написать мне
-        </a>
+        <ul class="contact-links" id="contactLinks"></ul>
       </section>
     </main>
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <span>© <span id="year"></span> <span data-profile-field="name">Ваше Имя</span></span>
+        <span>© <span id="year"></span> <span data-profile-field="name">Vladyslav</span></span>
         <a href="#top">Back to top ↑</a>
       </div>
     </footer>
 
-    <p class="sr-only" id="linkNotice" role="status" aria-live="polite"></p>
-    <script src="script.js?v=6"></script>
+    <script src="script.js?v=7"></script>
   </body>
 </html>
