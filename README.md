@@ -6,6 +6,8 @@ and mobile.
 
 **Live demo:** [crjfc2vsy2-maker.github.io/portfolio](https://crjfc2vsy2-maker.github.io/portfolio/)
 
+![Screenshot of the Vladyslav portfolio home page](assets/portfolio-hero.png)
+
 ## Technologies
 
 - HTML
