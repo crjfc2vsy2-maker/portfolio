@@ -38,6 +38,16 @@ const portfolioData = {
       status: "concept",
     },
     {
+      title: "Nexa AI",
+      description:
+        "A responsive AI SaaS dashboard concept with project management, content generation, analytics, templates, notifications, settings, and client-side simulated AI workflows.",
+      image: "assets/nexa-ai-dashboard.png",
+      technologies: ["HTML", "CSS", "JavaScript", "Git", "GitHub Pages"],
+      liveUrl: "https://crjfc2vsy2-maker.github.io/nexa-ai-dashboard/",
+      githubUrl: "https://github.com/crjfc2vsy2-maker/nexa-ai-dashboard",
+      status: "concept",
+    },
+    {
       title: "Personal Portfolio",
       description:
         "A responsive personal portfolio website built to showcase my work, skills, and contact information. Designed with a clean, modern interface and optimized for both desktop and mobile.",
