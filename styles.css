@@ -275,6 +275,19 @@ a {
   grid-template-columns: minmax(0, 460px);
 }
 
+/* A 4th project leaves a lone card on its own row in the 3-column grid —
+   span it full width instead of leaving empty columns beside it. Scoped to
+   widths where the grid is actually 3 columns (see breakpoints below). */
+@media (min-width: 981px) {
+  .projects-grid:has(.project-card:nth-child(4):last-child) .project-card:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .projects-grid:has(.project-card:nth-child(4):last-child) .project-card:last-child .project-preview {
+    aspect-ratio: 2.6 / 1;
+  }
+}
+
 .project-card {
   display: flex;
   min-width: 0;

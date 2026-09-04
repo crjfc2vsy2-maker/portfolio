@@ -48,6 +48,16 @@ const portfolioData = {
       status: "concept",
     },
     {
+      title: "NOIRÉ",
+      description:
+        "A premium fashion e-commerce concept featuring product discovery, filtering, product detail experiences, persistent cart functionality, and a fully responsive editorial interface.",
+      image: "assets/noire-fashion-store.png",
+      technologies: ["HTML", "CSS", "JavaScript", "Git", "GitHub Pages"],
+      liveUrl: "https://crjfc2vsy2-maker.github.io/noire-fashion-store/",
+      githubUrl: "https://github.com/crjfc2vsy2-maker/noire-fashion-store",
+      status: "concept",
+    },
+    {
       title: "Personal Portfolio",
       description:
         "A responsive personal portfolio website built to showcase my work, skills, and contact information. Designed with a clean, modern interface and optimized for both desktop and mobile.",
