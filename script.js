@@ -32,6 +32,25 @@ const portfolioData = {
   //   status    - "live" | "in-progress" | "concept" | "archived".
   projects: [
     {
+      title: "AERON GT",
+      category: "Interactive 3D Automotive Experience",
+      description:
+        "A premium, real-time 3D showcase for a concept electric grand tourer — a live color, wheel and interior configurator, custom automotive-studio materials and lighting, and a scroll-driven camera sequence, tuned to stay smooth on desktop and mobile.",
+      image: "assets/aeron-gt-hero.png",
+      technologies: [
+        "Three.js",
+        "WebGL",
+        "Real-Time 3D",
+        "Vehicle Configurator",
+        "Optimized GLB",
+        "GSAP",
+      ],
+      liveUrl: "https://crjfc2vsy2-maker.github.io/aeron-gt/",
+      githubUrl: "https://github.com/crjfc2vsy2-maker/aeron-gt",
+      featured: true,
+      status: "live",
+    },
+    {
       title: "Oakmont Barber Co.",
       category: "Business Website",
       description:
@@ -213,11 +232,18 @@ const createProjectLink = (label, url, projectTitle) => {
 
 const createProjectCard = (project, index) => {
   const article = document.createElement("article");
-  article.className = "project-card";
+  article.className = project.featured ? "project-card project-card--featured" : "project-card";
   article.style.setProperty("--reveal-delay", `${index * 90}ms`);
 
   const preview = document.createElement("div");
   preview.className = "project-preview";
+
+  if (project.featured) {
+    const badge = document.createElement("span");
+    badge.className = "project-featured-badge";
+    badge.textContent = "Featured";
+    preview.append(badge);
+  }
 
   const image = document.createElement("img");
   image.className = "project-image";
@@ -303,6 +329,14 @@ const createProjectCard = (project, index) => {
 
   if (project.liveUrl) {
     links.append(createProjectLink("View Live", project.liveUrl, project.title));
+  } else if (project.comingSoon) {
+    const pending = document.createElement("span");
+    pending.className = "project-link-pending";
+    const dot = document.createElement("span");
+    dot.className = "availability-dot";
+    dot.setAttribute("aria-hidden", "true");
+    pending.append(dot, document.createTextNode("Live preview — deploying soon"));
+    links.append(pending);
   }
 
   if (project.githubUrl) {

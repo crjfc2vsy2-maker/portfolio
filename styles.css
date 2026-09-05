@@ -595,6 +595,46 @@ a {
   transform: none;
 }
 
+/* Featured project: full-width lead card with a wider, more cinematic preview. */
+.project-card--featured {
+  grid-column: 1 / -1;
+}
+
+.project-card--featured .project-preview {
+  aspect-ratio: 2 / 1;
+}
+
+.project-featured-badge {
+  position: absolute;
+  z-index: 1;
+  top: 12px;
+  left: 12px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-text);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-link-pending {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--quiet);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+@media (max-width: 980px) {
+  .projects-grid:has(.project-card--featured) .project-card:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
 .project-body {
   display: flex;
   padding: 24px 18px 18px;
